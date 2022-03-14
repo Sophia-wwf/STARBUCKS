@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="星巴克、咖啡">
+    <meta name="Keywords" name="星巴克、咖啡">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/car.css">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <script src="js/jquery/jquery-3.4.1.js"></script>
+    <script src="js/car.js"></script>
+    <title>星巴克</title>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <div class="shortcut">
+        <div class="w">
+            <div class="shortcut_left">
+                <ul>
+                    <li>亲爱的顾客---</li>
+                    <li>
+                        <a href="#">请先登录</a>
+                        <a href="register.html" class="register">免费注册</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="shortcut_right">
+                <div>
+                    <li><a href="#">我的订单</a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 导航栏 -->
+    <!-- 头部 -->
+    <div class="car_header w clearfix">
+        <div class="logo">
+            <h1>
+                <a href="index.html">返回主页</a>
+            </h1>
+        </div>
+    </div>
+    <!-- 头部 -->
+    <!-- 我的购物车 -->
+    <div class="all w">
+        <div class="all_title">
+            我的购物车
+        </div>
+        <table border="0" cellspacing='0' cellpadding='0' class="w">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" class="checkAll">全选
+                    </th>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                    <th class="xl"><img src="upload/al.png" alt="" style="display: inline-block;" width="12px"></th>
+                </tr>
+            </thead>
+            <tbody class="goods">
+                <tr class="goods_display w">
+                    <td>
+                        <input type="checkbox" class="checkone">
+                    </td>
+                    <td>
+                        <img src="upload/02.png" alt="">
+                        <span>星巴克®肯亚咖啡豆</span>
+                    </td>
+                    <td>
+                        <em>￥35.0</em>
+                    </td>
+                    <td>
+                        <button class="reduce">-</button>
+                        <input type="text" class="goods_number" value="1">
+                        <button class="add">+</button>
+                    </td>
+                    <td class="total_price">
+                        <em>￥35.0</em>
+                    </td>
+                    <td>
+                        <a href="#" class="remove_goods">删除</a>
+                    </td>
+                </tr>
+                <tr class="goods_display">
+                    <td>
+                        <input type="checkbox" class="checkone">
+                    </td>
+                    <td>
+                        <img src="upload/0.jpg" alt="">
+                        <span>星巴克VIA®香草拿铁风味免煮咖啡固体饮料</span>
+                    </td>
+                    <td>
+                        <em>￥35.0</em>
+                    </td>
+                    <td>
+                        <button class="reduce">-</button>
+                        <input type="text" class="goods_number" value="1">
+                        <button class="add">+</button>
+                    </td>
+                    <td class="total_price">
+                        <em>￥35.0</em>
+                    </td>
+                    <td>
+                        <a href="#" class="remove_goods">删除</a>
+                    </td>
+                </tr>
+                <tr class="goods_display">
+                    <td>
+                        <input type="checkbox" class="checkone">
+                    </td>
+                    <td>
+                        <img src="upload/01.jpg" alt="" class="xl">
+                        <span>星巴克ORIGAMI™便携式滴滤咖啡（研磨咖啡粉）</span>
+                    </td>
+                    <td>
+                        <em>￥35.0</em>
+                    </td>
+                    <td>
+                        <button class="reduce">-</button>
+                        <input type="text" class="goods_number" value="1">
+                        <button class="add">+</button>
+                    </td>
+                    <td class="total_price">
+                        <em>￥35.0</em>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" class="remove_goods">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="foot clearfix">
+            <div class="left">
+                <input type="checkbox" class="checkAll">全选
+                <a href="#" class="delCheck">删除选中的商品</a>
+                <a href="#" class="delAll">清理购物车</a>
+            </div>
+            <div class="right">
+                <p class="goods_lzz">已经选<em>0</em>件商品</p>
+                <p class="son">总价：<em class="oym">￥0.00</em></p>
+
+                <input type="button" value="结算成功" style="color: red; font-size: medium;" onclick="message()" />
+            </div>
+        </div>
+    </div>
+    <!-- 我的购物车 -->
+    <script>
+        $(window).siblings
+        var txt = "";
+
+        function message() {
+            try {
+                adddlert("Welcome guest!");
+            } catch (err) {
+                txt = "结算成功";
+                if (confirm(txt)) {
+                    document.location.href = "wuxing.html";
+                }
+            }
+        }
+        $(function() {
+            $(".xl").click(function() {
+                $(".goods").toggle();
+            })
+
+        })
+    </script>
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="w">
+            <div class="footer_center clearfix">
+                <dt>开启您的星享之旅，星星越多、会员等级越高、好礼越丰富 ----- <a href="#" class="">加入会员俱乐部</a></dt>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <script>
+        $(window).siblings
+    </script>
+</body>
+
+</html>

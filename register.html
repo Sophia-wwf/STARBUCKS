@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="星巴克、咖啡">
+    <meta name="Keywords" name="星巴克、咖啡">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <script src="js/jquery/jquery-3.4.1.js"></script>
+    <script src="js/register.js"></script>
+    <title>星巴克</title>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="register_header w">
+        <div class="logo">
+            <h1>
+                <a href="index.html">星巴克</a>
+            </h1>
+        </div>
+    </div>
+    <!-- 头部 -->
+
+    <!-- main开始 -->
+    <div class="main w">
+        <div class="main_header">
+            <h3>注册新用户</h3>
+            <p>我有账号，去<a href="login.html">登录</a></p>
+        </div>
+        <div class="main_content">
+            <form action="demo.php">
+                <table border="0" cellspacing='0' cellpadding='0' align="center">
+                    <tr>
+                        <td>手机号：</td>
+                        <td>
+                            <input type="text" id="phone" class="txt" onblur="checkPhone()">
+                            <em></em>
+                            <span id="phoneSpan">
+                               
+                            </span>
+                        </td>
+                    </tr>
+                    </br>
+                    </br>
+                    <tr>
+                        <td>登录密码：</td>
+                        <td>
+                            <section>
+                                <input type="password" id="password" class="txt" maxlength="15" onblur="checkPwd()">
+                                <b></b>
+                            </section>
+                            <em></em>
+                            <span id="pwdSpan">
+                                <font>只能输入6-20个字母、数字、下划线</font>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>确认密码：</td>
+                        <td>
+                            <div>
+                                <input type="password" id="checkPassword" class="txt" maxlength="15" onblur="checkPwd2()">
+                                <b></b>
+                            </div>
+                            <em></em>
+                            <span id="pwd2Span"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="read">同意协议并注册
+                            <a href="#">《用户协议》</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div style="background-color: red; text-align: center;width: 100px; height: 30px;">
+                                <a href="login.html">
+                                    <p style="color:white; line-height: 30px; font-size: medium;">完成注册</p>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <!-- main结束 -->
+
+    <script>
+        $(window).siblings
+
+
+        function checkPhone() {
+            var phone = document.getElementById("phone");
+            var phoneSpan = document.getElementById("phoneSpan");
+            var phoneReg = /^1[0-9]{10}$/ig;
+            var phoneValue = phone.value;
+            if (phoneReg.test(phoneValue)) {
+                phoneSpan.innerHTML = "手机号输入成功!";
+                phoneSpan.style.color = "green";
+                return true;
+            } else {
+                phoneSpan.innerHTML = "手机号输入失败！请输入中国大陆手机号码";
+                phoneSpan.style.color = "red";
+                return true;
+            }
+        }
+
+        function checkPwd() {
+            var upwd = document.getElementById("password").value;
+            var reg = /^(\w){6,20}$/; //只能输入6-20个字母、数字、下划线
+            var span = document.getElementById("pwdSpan");
+            console.log(upwd);
+            console.log(span);
+            if (reg.test(upwd)) {
+                console.log(111)
+                span.innerHTML = "*密码通过";
+                span.style.color = "green";
+                return true;
+            } else if (span == "" || span == null) {
+                span.innerHTML = "密码不能为空";
+                span.style.color = "red";
+                return false;
+            } else {
+                console.log(333)
+                span.innerHTML = "*密码格式不符"
+                span.style.color = "red";
+                return false;
+            }
+            checkPwd2()
+        }
+
+        function checkPwd2() {
+            var pwd = document.getElementById("password").value;
+            var pwd2 = document.getElementById("checkPassword").value;
+            var span = document.getElementById("pwd2Span");
+            if (checkPassword == "" || checkPassword == null) {
+                span.innerHTML = "密码不能为空";
+                span.style.color = "red";
+                return false;
+            } else if (pwd == pwd2) {
+                span.innerHTML = "*密码通过";
+                span.style.color = "green";
+                return true;
+            } else {
+                span.innerHTML = "*密码不同，请重新输入"
+                span.style.color = "red";
+                return false;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

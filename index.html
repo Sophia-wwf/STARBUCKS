@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星巴克产品页面</title>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/swiper.css">
+    <style>
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+		
+		/* 广告弹窗 */
+		#div1{
+			 width: 400px;
+			 height: 256px;
+			 background: #ccc;
+			 background: url(upload/广告2.png) ;
+			 position: fixed;
+			 //使用绝对定位让其处于右上方
+			 right: 0;
+			 top: 321px;
+			 z-index: 9999;
+			 }
+		#img1{
+			float: right;
+		}
+		.guang{
+			width: 100%;
+			height: 100%;
+		}
+		/* 广告弹窗 */
+		
+        .swiper-container {
+            width: 100%;
+            height: 632px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+		.header_content #he .xl {
+		    position: absolute;
+		    background-color: rgb(49, 49, 49);
+		    width: 88px;
+		    height: 100px;
+		    right: 205px;
+		    z-index: 1000;
+		    display: none;
+		}
+		
+		.header_content #he span a {
+		    display: block;
+		    border: 0;
+		    color: #fff;
+		    cursor: pointer;
+		}
+    </style>
+    <link rel="stylesheet" href="css/animate.min.css">
+</head>
+<body>
+	<!-- 广告弹窗 -->
+		
+		<div id="div1">
+				<!-- <img  src="upload/广告.png" class="guang"/> -->
+				<img src="upload/关闭.png" title="关闭" id="img1">
+			</div>
+		<script>
+		    window.onload=window.onscroll=window.onresize=function(){
+		 
+		      var oDiv=document.getElementById('div1');
+		      var scrolltop=document.documentElement.scrollTop||document.body.scrollTop;
+		/* "scrolltop"是滚动条滚动的距离，这里有一个兼容chrome不支持document.documentElement.scrollTop获取语句，其他浏览器支持。 */          
+		      var t=(document.documentElement.clientHeight-oDiv.offsetHeight)/2;
+		/* "t"为让广告框处于中间位置的高度距离，（获取浏览器的总高度-广告框自身高度）/2   */   
+		      startMover(parseInt(t+scrolltop));
+		/* "parseIn"返回一个整数，避免小数生成。这里广告框的总移动距离为（t+scrolltop）    */
+		    };
+		    var timer=null;
+		    function startMover(iTarget){
+		      var oDiv=document.getElementById('div1');
+		      clearInterval(timer);
+		      timer=setInterval(function(){
+		          var ispeed=(iTarget-oDiv.offsetTop)/8;
+				//速度设置为逐渐减小
+		          ispeed=ispeed>0?Math.ceil(ispeed):Math.floor(ispeed);
+				//避免速度产生小数点
+		          if(oDiv.offsetTop==iTarget){
+		            clearInterval(timer);
+		          }
+		          else{
+		          oDiv.style.top=oDiv.offsetTop+ispeed+"px";
+		          }
+		 
+		    },30);
+		    };
+			var gg=document.getElementById('div1')
+			var mg=document.getElementById('img1')
+			mg.onclick=function () {
+			    gg.style.display='none'
+			}
+		  </script>
+		<!-- 广告弹窗 -->
+
+<!-- 页面最上部 -->
+<div id="header_top"></div>
+<!-- 页面顶部 -->
+<div id="header">
+    <div class="header_content">
+        <div class="lf">
+            <a href="#" title="查看星巴克新浪微博" class="xlwb"></a>
+            <a href="#" title="查看星巴克腾讯微博" class="txwb"></a>
+            <span>4001-666-888</span>
+        </div>
+        <ul class="rt">
+            <li>
+                <a href="login.html">登录</a>
+            </li>
+            <li>
+                <a href="register.html">注册</a>
+            </li>
+            <li>
+                <a href="story.html">品牌故事</a>
+            </li>
+            <li id="he">
+               <a href="#" class="help">帮助中心</a>
+               <div class="xl">
+                   <span>
+                       <a href="#">了解我们</a>
+               </span>
+                   <span>
+                       <a href="#">详细信息</a>
+                   </span>
+                   <span>
+                       <a href="#">基本权限</a>
+                   </span>
+               </div>
+            </li>
+            <li class="gw">
+                <a href="car.html">购物车</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 页面主导航 -->
+<div id="nav">
+    <div class="nav_content">
+        <div class="nav_logo" style="margin-top: 15px;">
+			<img src="imgs/bgi/logo.png" width="200px" />
+		</div>
+        <ul class="nav_main">
+            <li><a href="">首页</a></li>
+            <li><a href="">新品</a></li>
+            <li><a href="">定制</a></li>
+            <li><a href="">服务</a></li>
+            <li><a href="">线下店</a></li>
+            <li><a href="">周边商店</a></li>
+            <li><a href="">加盟热线</a></li>
+        </ul>
+    </div>
+</div>
+<!-- 轮播广告区域 -->
+<div id="banner">
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="imgs/photo/banner1.jpg" width="100%;" height="630"></div>
+            <div class="swiper-slide"><img src="imgs/photo/banner2.jpg" width="100%;" height="630"></div>
+            <div class="swiper-slide"><img src="imgs/photo/banner3.jpg" width="100%;" height="630"></div>
+            <div class="swiper-slide"><img src="imgs/photo/banner4.jpg" width="100%;" height="630"></div>
+
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next">1</div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <div class="banner-nav-bg"></div>
+</div>
+<!-- 页面主体第一部分 -->
+<div id="main-1">
+    <div class="floor-1">
+        <div class="floor1">
+            <a href="" class="floor-title-png"><img src="imgs/bgi/i-c-title.png" class="animated zoomInUp"></a>
+            <h1 style="display:none;">星巴克当季限量新品</h1>
+            <div class="floor-content">
+                <div class="floor-content3">
+                    <ul class="star">
+                        <li class="star_1 opt_hide a1">
+                            <a href="" class="shadow">
+                                <div class="pic">
+                                    <img src="imgs/photo/20141030152751NRihyRENa7.jpg">
+                                </div>
+                                <div class="info">
+                                    <div class="name">N3</div>
+                                    <div class="detail">
+                                        幻影流光
+                                    </div>
+                                    <div class="price">
+                                        ￥399
+                                        <span class="buy">立即购买</span>
+                                        <em class="arrow"></em>
+                                    </div>
+                                </div>
+                                <div class="shadow-line"></div>
+                            </a>
+                        </li>
+                        <li class="line"></li>
+                        <li class="star_1 opt_hide a2">
+                            <a href="" class="shadow">
+                                <div class="pic">
+                                    <img src="imgs/photo/20141029162235J7aJmCHkFm.jpg">
+                                </div>
+                                <div class="info">
+                                    <div class="name">R5</div>
+                                    <div class="detail">
+                                        圣诞限定
+                                    </div>
+                                    <div class="price">
+                                        ￥299
+                                        <span class="buy">立即购买</span>
+                                        <em class="arrow"></em>
+                                    </div>
+                                </div>
+                                <div class="shadow-line"></div>
+                            </a>
+                        </li>
+                        <li class="line"></li>
+                        <li class="star_1 opt_hide a3">
+                            <a href="" class="shadow">
+                                <div class="pic">
+                                    <img src="imgs/photo/20150120092342k2ABsEHnQN.jpg">
+                                </div>
+                                <div class="info">
+                                    <div class="name">R1C</div>
+                                    <div class="detail">
+                                        磨砂镜面
+                                    </div>
+                                    <div class="price">
+                                        ￥299
+                                        <span class="buy">立即购买</span>
+                                        <em class="arrow"></em>
+                                    </div>
+                                </div>
+                                <div class="shadow-line"></div>
+                            </a>
+                        </li>
+                        <li class="line"></li>
+                        <li class="star_1 opt_hide a4">
+                            <a href="" class="shadow">
+                                <div class="pic">
+                                    <img src="imgs/photo/20150423183545tYnFzYnn3p.jpg">
+                                </div>
+                                <div class="info">
+                                    <div class="name">A31</div>
+                                    <div class="detail">
+                                        温暖在怀
+                                    </div>
+                                    <div class="price">
+                                        ￥99
+                                        <span class="buy">立即购买</span>
+                                        <em class="arrow"></em>
+                                    </div>
+                                </div>
+                                <div class="shadow-line"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 页面主体第二部分 -->
+<div id="main-2">
+    <div class="floor-2">
+        <div class="floor2">
+            <a href="" class="floor-title-png"><img src="imgs/bgi/wb.png"  class="animated zoomInUp"></a>
+            <h2 style="display:none;">星巴克产品</h2>
+            <div class="boxs">
+                <div class="box-l">
+                    <div class="first-img0 b1 opt_hide">
+                        <div class="first-img">
+                            <img src="imgs/photo/20150413174400N0dPnxUKHk.jpg"/>
+                            <div class="shadow-line"></div>
+                        </div>
+                    </div>
+                    <div class="box-hd b2 opt_hide">
+                        <p><span>星巴克产品官网ACCESSORY 产品</span></p>
+                        <ul class="box-bd">
+                            <li class="icon1"><a href="">星粉卡</a></li>
+                            <li class="icon2"><a href="">当季新品</a></li>
+                            <li class="icon3"><a href="">保护套</a></li>
+                            <li class="icon4"><a href="">杯垫</a></li>
+                            <li class="icon5"><a href="">杯套</a></li>
+                            <li class="icon6"><a href="">星巴杯</a></li>
+                        </ul>
+                        <div class="box-ft">
+                            <a href="">全部新品<span class="arrow"></span></a>
+                        </div>
+                    </div>
+                    <div class="box-dy b3 opt_hide">
+                        <img src="imgs/photo/20131120165101xYIYzhkVEy.jpg"/>
+                        <div class="shadow-line"></div>
+                    </div>
+                    <div class="box-usb0 b4 opt_hide">
+                        <div class="box-usb">
+                            <img src="imgs/photo/20150413174340NLV2gvV4FU.jpg"/>
+                            <div class="shadow-lineW"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-r">
+                    <div class="box-sc0 b5 opt_hide">
+                        <div class="box-sc">
+                            <img src="imgs/photo/20150123182505RO822scYYt.jpg"/>
+                            <div class="shadow-lineW"></div>
+                        </div>
+                    </div>
+                    <div class="box-jdej b6 opt_hide">
+                        <img src="imgs/photo/20141230145609l7Fsk7CdHy.jpg"/>
+                        <div class="shadow-line"></div>
+                    </div>
+                    <div class="box-gpzej0 b7 opt_hide">
+                        <div class="box-gpzej">
+                            <img src="imgs/photo/20141011101157yZEFpMrk0h.jpg"/>
+                            <div class="shadow-line"></div>
+                        </div>
+                    </div>
+                    <div class="box-lyej b8 opt_hide">
+                        <img src="imgs/photo/201410270957132inlm3IwsV.jpg"/>
+                        <div class="shadow-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 页面主体第三部分 -->
+<div id="main-3">
+    <div class="floor-3">
+        <div class="floor3">
+            <a href="" class="floor-title-png"><img src="imgs/bgi/weibo.png" class="animated zoomInUp"></a>
+            <div class="box-world">
+                <div class="box-fqgw">
+                    <div class="box-fq opt_hide c1">
+                        <img src="imgs/photo/201403261455420lqMPNGENc.png" alt="1">
+                        <div class="shadow-line"></div>
+                    </div>
+                    <div class="box-gw opt_hide c2">
+                        <img src="imgs/photo/20150226100534QqezQ85N6y.jpg" alt="1">
+                        <div class="shadow-line"></div>
+                    </div>
+                </div>
+                <div class="box-hdfk opt_hide c3">
+                    <img src="imgs/photo/20140926184007v2rjcVFcbW.jpg" alt="1">
+                    <div class="shadow-line"></div>
+                </div>
+                <div class="box-gj opt_hide c4">
+                    <img src="imgs/photo/20131212113902waaLqQUWfB.jpg" alt="1">
+                    <div class="shadow-line"></div>
+                </div>
+            </div>
+            <div class="news d1 opt_hide">
+                <div class="xwwb">
+                    <div class="asd active"><a href="#">新闻</a></div>
+                    <div class="asd"><a href="#">微博</a></div>
+                </div>
+            </div>
+            <div class="news1 d2 opt_hide tab">
+                <ul>
+                    <li>
+                        <div class="n1">
+                            <p><a href="">2021年 星巴克中国首家“非遗文化体验店”在北京开业。</a></p>
+                            <img src="imgs/photo/20150227161036GqO59Dvta2.jpg">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="n1"><img src="imgs/photo/201502271135596D2wBJxvH0.jpg">
+                            <p><a href="">2020年 星巴克中国啡快 ™ 服务多平台焕新上线，登陆阿里巴巴旗下多个App平台。</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="n1"><img src="imgs/photo/20140604145924CFBnAtVjqN.jpg">
+                            <p><a href="">星巴克获奖广告：每个名字都是一个故事</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="n1"><img src="imgs/photo/20140919101741cvR0TcGkaq.jpg">
+                            <p><a href="">2018星巴克中国星级咖啡师大赛决出四项冠军</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 售后服务 -->
+<div id="foot_box">
+    <div class="foot_boxContent">
+        <dl class="f1 opt_hide">
+            <dt class="f1"></dt>
+            <dd>正品保障</dd>
+            <span>所有商品都是原装正品</span>
+        </dl>
+        <dl class="f2 opt_hide">
+            <dt class="f2"></dt>
+            <dd>79元起包邮</dd>
+            <span>高效的物流直达配送</span>
+        </dl>
+        <dl class="f3 opt_hide">
+            <dt class="f3"></dt>
+            <dd>7天退换货</dd>
+            <span>支持7天退货,30天换货</span>
+        </dl>
+        <dl class="f4 opt_hide">
+            <dt class="f4"></dt>
+            <dd>285自提点</dd>
+            <span>轻松自在,覆盖各大城市</span>
+        </dl>
+        <dl class="f5 opt_hide">
+            <dt class="f5"></dt>
+            <dd>356家线下门店</dd>
+            <span>专业服务就在家门口</span>
+        </dl>
+    </div>
+</div>
+<!--关于我们 -->
+<div id="footer">
+    <div class="footerContent">
+        <ul>
+            <li>
+                <div class="title">关于我们</div>
+                <p><a href="#">关于星巴克</a></p>
+                <p><a href="#">新闻中心</a></p>
+                <p><a href="#">人才招聘</a></p>
+            </li>
+            <li>
+                <div class="title">推荐新品</div>
+                <p><a href="#">美式咖啡</a></p>
+                <p><a href="#">白色玛奇朵</a></p>
+                <p><a href="#">草莓轻乳酪</a></p>
+                <p><a href="#">燕麦拿铁</a></p>
+            </li>
+            <li>
+                <div class="title">购物相关</div>
+                <p><a href="#">帮助中心</a></p>
+                <p><a href="#">周边产品</a></p>
+                <p><a href="#">星巴克线下店</a></p>
+                <p><a href="#">客户服务政策</a></p>
+            </li>
+            <li>
+                <div class="title">会员中心</div>
+                <p><a href="#">产品注册</a></p>
+                <p><a href="#">会员注册</a></p>
+                <p><a href="#">会员登录</a></p>
+            </li>
+            <li>
+                <div class="title">关注我们</div>
+                <p><a href="#" class="xl">新浪微博</a></p>
+                <p><a href="#" class="tx">腾讯微博</a></p>
+                <p><a href="#" class="rr">人人网</a></p>
+                <p><a href="#" class="qq">QQ空间</a></p>
+            </li>
+            <li>
+                <div class="title">联系我们</div>
+                <div class="foot-top">
+                    <h1></h1>
+                    <p class="lxwm">4001-666-888</p>
+                    <p>7*24小时客服电话</p>
+                </div>
+                <div class="foot-bottom">
+                    <h1></h1>
+                    <p class="lxwm">在线客服</p>
+                    <p>服务时段：8：30--22:00</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 版权所有 -->
+<div id="foot_bottom">
+    <div class="footBottom">
+        <div class="foot_left">
+            <!-- <div class="foot_logo"></div> -->
+            <p>© 2005 - 2015 东莞市永盛通信科技有限公司 版权所有(<a href="">粤ICP备 08130115 号</a>)</p>
+        </div>
+        <div class="foot_right">
+            <a href="#">版权说明</a>
+            <a href="#">使用协议</a>
+            <a href="#">网站地图</a>
+            <a href="#">友情链接</a>
+            <a href="#">联系我们</a>
+        </div>
+    </div>
+</div>
+<!-- 返回顶部 -->
+<div id="totop">
+    <a href="javascript:;" id="btn"></a>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/swiper.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        loop: true,
+        autoplay: 3000,
+        speed: 1000,
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next',
+        effect: 'fade',//  effect: 'flip',effect: 'coverflow',slide', 'fade',cube
+        grabCursor: true,
+        cube: {
+            shadow: false,
+            slideShadows: false,
+            shadowOffset: 20,
+            shadowScale: 0.94
+        }
+    });
+</script>
+<script src="js/products.js"></script>
+<script src="js/login.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+        var totop = document.getElementById("btn");
+        // 页面加载后隐藏按钮
+        totop.style.display = "none";
+
+
+        // 吸顶灯功能实现
+        var nav = document.getElementById("nav");
+        var navTop = nav.offsetTop;
+        // console.log(navTop);
+
+
+        
+        var timer = null;
+        // 添加点击事件
+        totop.onclick = function(){
+            timer = setInterval(function(){
+                var backtop = document.documentElement.scrollTop || document.body.scrollTop;
+                // 越滚越慢
+                var speedTop = backtop/5;
+                document.documentElement.scrollTop = backtop-speedTop;
+                if(backtop == 0){
+                    clearInterval(timer);
+                }
+            },30);
+        }
+
+        var pageHeight = 700;
+        window.onscroll = function(){
+            // console.log("111");
+            var backtop = document.documentElement.scrollTop || document.body.scrollTop;
+            if(backtop >= pageHeight){
+                totop.style.display = "block";
+            }else{
+                totop.style.display = "none";
+            }
+
+
+            // 吸顶灯功能实现
+            if(backtop>=navTop){
+                nav.style.position = "fixed";
+                nav.style.top = 0;
+                nav.style.left = 0;
+                nav.style.zIndex = 100;
+            }else{
+                // nav.style.position = "";
+            }
+        }
+
+        // 加载页面
+        $(function() {
+            // mouseover鼠标悬入事件
+            $(".help").mouseover(function() {
+                /* 设置ul的显示样式 */
+                $(".xl").css("display", "block");
+                显示的方法
+                // $("ul").show();
+                // 向下拉的动画方法，在3秒钟
+                // $("ul").slideDown(3000);
+        
+                // mouseout鼠标悬出事件
+            }).mouseout(function() {
+                /* 设置ul的隐藏样式 */
+                $(".xl").css("display", "none");
+                // $("ul").hide();
+                // 向上拉的动画方法
+                // $("ul").slideUp(3000);
+            });
+        
+        });
+    }
+</script>
+</body>
+</html>
